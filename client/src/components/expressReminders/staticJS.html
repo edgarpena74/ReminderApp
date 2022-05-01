@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>NOTE: change background for the portion that have code</h1>
+		<h1>Express</h1>
+		<br />
+		<h1>Server.js</h1>
+
+		<p>The require() portion is part of the NodeJS stuff</p>
+		<!-- Maybe remove the paragraph element? or change width -->
+		<p class="code">
+			<code> const express = require("express"); </code>
+			<br />
+			<code>const app = express();</code>
+		</p>
+
+		<p>Then the alternative express port is 5000</p>
+		<code>const PORT = process.env.PORT || 5000;</code>
+
+		<p>Then "path" is used for routing. (get, post, put, delete, etc.)</p>
+		<code>const path = require("path");</code>
+
+		<p>DB routing</p>
+		<code>require("./models/connection");</code>
+
+		<p>Handles JSON stuff</p>
+		<code>app.use(express.urlencoded({ extended: true }));</code>
+		<br />
+		<code>app.use(express.json());</code>
+
+		<p>This is for when we have a build folder.</p>
+		<code
+			>if (process.env.NODE_ENV == "production") {
+			app.use(express.static("client/build")); }
+		</code>
+
+		<p>A custom route for Get, Post, Del, etc.</p>
+		<code>app.use("/blog", require("./routes/blog-routes"));</code>
+
+		<p>Routing for DB stuff</p>
+		<code
+			>app.get("*", (req, res) => { res.sendFile(path.resolve(__dirname,
+			"client", "build", "index.html")); });
+		</code>
+
+		<p>MOST IMPORTANT! The port</p>
+		<code>app.listen(PORT, () => { console.log("Listening"); });</code>
+	</body>
+</html>

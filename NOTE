@@ -1,0 +1,9 @@
+-   The default packages
+    that are installed when you use npx
+    go inside of the "client" folder
+
+    First have the folder "Project_Name"
+
+    Then git bash and "npx create-react-app client"
+
+-   To uninstall "npm uninstall -g create-react-app"
